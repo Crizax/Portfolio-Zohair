@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --mist: #eef2f4;
+  --paper: #ffffff;
+  --ink: #17222d;
+  --muted: #5b6b79;
+  --line: #d5dde3;
+  --teal: #0b6a69;
+  --teal-dark: #084b4a;
+  --marigold: #f4b942;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body {
+  margin: 0;
+  background: var(--mist);
+  color: var(--ink);
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+h1, h2, h3, .font-display {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+
+/* colour tokens (plain CSS so they work on Tailwind v3 and v4) */
+.bg-mist { background: var(--mist); }
+.bg-paper { background: var(--paper); }
+.bg-ink { background: var(--ink); }
+.glass { background: rgb(238 242 244 / 0.92); backdrop-filter: blur(8px); }
+.text-ink { color: var(--ink); }
+.text-mist { color: var(--mist); }
+.text-dim { color: #b9c5ce; }
+.text-muted { color: var(--muted); }
+.text-teal { color: var(--teal); }
+.border-line { border-color: var(--line); }
+.border-ink { border-color: var(--ink); }
+.rules > * + * { border-top: 1px solid var(--line); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.7rem 1.25rem; border-radius: 0.5rem; font-weight: 600;
+  border: 2px solid var(--ink); cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn-solid { background: var(--ink); color: var(--mist); }
+.btn-solid:hover { background: var(--teal); border-color: var(--teal); }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--mist); }
+.btn-light { background: var(--marigold); border-color: var(--marigold); color: var(--ink); }
+.btn-light:hover { background: var(--mist); border-color: var(--mist); }
+
+.chip {
+  display: inline-block; padding: 0.15rem 0.7rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--mist); font-size: 0.9rem;
+}
+.chip-dark { border-color: #3a4a5a; background: transparent; color: var(--mist); }
+
+/* hero demo: one orchestrated reveal, replays when the person runs it */
+@keyframes tag-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@keyframes sweep { from { background-size: 0% 100%; } to { background-size: 100% 100%; } }
+.row-result { opacity: 0; animation: tag-in 0.35s ease forwards; }
+.mark {
+  background-color: transparent;
+  background-image: linear-gradient(var(--marigold), var(--marigold));
+  background-repeat: no-repeat; background-size: 0% 100%;
+  animation: sweep 0.45s ease forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .row-result { animation: none; opacity: 1; }
+  .mark { animation: none; background-size: 100% 100%; }
+}
