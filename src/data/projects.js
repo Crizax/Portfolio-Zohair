@@ -14,7 +14,7 @@ export const featuredProjects = [
     flow: ["React UI", "RBAC Auth", "REST API", "Database"],
     accent: "from-slate-500/10 via-indigo-500/5 to-transparent",
     badgeColor: "text-slate-300 border-slate-500/30 bg-slate-500/10",
-    github: "https://github.com/Crizax",
+    github: "https://github.com/Crizax/hrms-app",
     live: "https://your-hrms-live-link.vercel.app", // <-- PASTE YOUR HRMS LIVE LINK HERE
   },
   {
