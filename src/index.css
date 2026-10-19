@@ -1,78 +1,108 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  --mist: #eef2f4;
-  --paper: #ffffff;
-  --ink: #17222d;
-  --muted: #5b6b79;
-  --line: #d5dde3;
-  --teal: #0b6a69;
-  --teal-dark: #084b4a;
-  --marigold: #f4b942;
+  --bg: #090a0f;
+  --surface: #11131c;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-highlight: rgba(148, 163, 184, 0.28);
+  --text: #f1f5f9;
+  --muted: #8e98a8;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  color-scheme: dark;
+}
+
 body {
   margin: 0;
-  background: var(--mist);
-  color: var(--ink);
-  font-family: "Source Sans 3", system-ui, sans-serif;
-  font-size: 1.0625rem;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
-h1, h2, h3, .font-display {
-  font-family: "Bricolage Grotesque", system-ui, sans-serif;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
 
-/* colour tokens (plain CSS so they work on Tailwind v3 and v4) */
-.bg-mist { background: var(--mist); }
-.bg-paper { background: var(--paper); }
-.bg-ink { background: var(--ink); }
-.glass { background: rgb(238 242 244 / 0.92); backdrop-filter: blur(8px); }
-.text-ink { color: var(--ink); }
-.text-mist { color: var(--mist); }
-.text-dim { color: #b9c5ce; }
-.text-muted { color: var(--muted); }
-.text-teal { color: var(--teal); }
-.border-line { border-color: var(--line); }
-.border-ink { border-color: var(--ink); }
-.rules > * + * { border-top: 1px solid var(--line); }
-
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-  padding: 0.7rem 1.25rem; border-radius: 0.5rem; font-weight: 600;
-  border: 2px solid var(--ink); cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+h1, h2, h3, h4, .font-display {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  letter-spacing: -0.03em;
 }
-.btn-solid { background: var(--ink); color: var(--mist); }
-.btn-solid:hover { background: var(--teal); border-color: var(--teal); }
-.btn-ghost { background: transparent; color: var(--ink); }
-.btn-ghost:hover { background: var(--ink); color: var(--mist); }
-.btn-light { background: var(--marigold); border-color: var(--marigold); color: var(--ink); }
-.btn-light:hover { background: var(--mist); border-color: var(--mist); }
 
-.chip {
-  display: inline-block; padding: 0.15rem 0.7rem; border-radius: 999px;
-  border: 1px solid var(--line); background: var(--mist); font-size: 0.9rem;
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
 }
-.chip-dark { border-color: #3a4a5a; background: transparent; color: var(--mist); }
 
-/* hero demo: one orchestrated reveal, replays when the person runs it */
-@keyframes tag-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-@keyframes sweep { from { background-size: 0% 100%; } to { background-size: 100% 100%; } }
-.row-result { opacity: 0; animation: tag-in 0.35s ease forwards; }
-.mark {
-  background-color: transparent;
-  background-image: linear-gradient(var(--marigold), var(--marigold));
-  background-repeat: no-repeat; background-size: 0% 100%;
-  animation: sweep 0.45s ease forwards;
+/* Subtle architectural grid */
+.bg-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
 }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .row-result { animation: none; opacity: 1; }
-  .mark { animation: none; background-size: 100% 100%; }
+
+.glass-nav {
+  background: rgba(9, 10, 15, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Muted Brushed Titanium & Dusty Indigo Gradient (Not bright/neon) */
+.text-gradient {
+  background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #cbd5e1 42%,
+    #94a3b8 70%,
+    #a5b4fc 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Refined Matte Primary Button */
+.btn-primary {
+  background: #f1f5f9;
+  color: #090a0f;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #ffffff;
+  box-shadow: 0 8px 24px -6px rgba(255, 255, 255, 0.18);
+}
+
+/* Interactive Spotlight Bento Card */
+.bento-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(20, 23, 34, 0.7) 0%, rgba(13, 15, 23, 0.92) 100%);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.bento-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, -200px),
+    rgba(148, 163, 184, 0.07),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.bento-card:hover {
+  border-color: var(--border-highlight);
+  box-shadow: 0 16px 36px -18px rgba(0, 0, 0, 0.7);
+}
+
+.bento-card:hover::before {
+  opacity: 1;
 }

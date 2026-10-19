@@ -1,0 +1,621 @@
+﻿
+
+===== FILE: src\App.css =====
+
+@import "tailwindcss";
+
+
+===== FILE: src\App.jsx =====
+
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Services from "./components/Services";
+import Process from "./components/Process";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+
+export default function App() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Projects />
+        <Skills />
+        <Services />
+        <Process />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+
+
+===== FILE: src\assets\react.svg =====
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="35.93" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 228"><path fill="#00D8FF" d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"></path></svg>
+
+
+===== FILE: src\assets\vite.svg =====
+
+<svg xmlns="http://www.w3.org/2000/svg" width="77" height="47" fill="none" aria-labelledby="vite-logo-title" viewBox="0 0 77 47"><title id="vite-logo-title">Vite</title><style>.parenthesis{fill:#000}@media (prefers-color-scheme:dark){.parenthesis{fill:#fff}}</style><path fill="#9135ff" d="M40.151 45.71c-.663.844-2.02.374-2.02-.699V34.708a2.26 2.26 0 0 0-2.262-2.262H24.493c-.92 0-1.457-1.04-.92-1.788l7.479-10.471c1.07-1.498 0-3.578-1.842-3.578H15.443c-.92 0-1.456-1.04-.92-1.788l9.696-13.576c.213-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.472c-1.07 1.497 0 3.578 1.842 3.578h11.376c.944 0 1.474 1.087.89 1.83L40.153 45.712z"/><mask id="a" width="48" height="47" x="14" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#000" d="M40.047 45.71c-.663.843-2.02.374-2.02-.699V34.708a2.26 2.26 0 0 0-2.262-2.262H24.389c-.92 0-1.457-1.04-.92-1.788l7.479-10.472c1.07-1.497 0-3.578-1.842-3.578H15.34c-.92 0-1.456-1.04-.92-1.788l9.696-13.575c.213-.297.556-.474.92-.474H53.93c.92 0 1.456 1.04.92 1.788L47.37 13.03c-1.07 1.498 0 3.578 1.842 3.578h11.376c.944 0 1.474 1.088.89 1.831L40.049 45.712z"/></mask><g mask="url(#a)"><g filter="url(#b)"><ellipse cx="5.508" cy="14.704" fill="#eee6ff" rx="5.508" ry="14.704" transform="rotate(269.814 20.96 11.29)scale(-1 1)"/></g><g filter="url(#c)"><ellipse cx="10.399" cy="29.851" fill="#eee6ff" rx="10.399" ry="29.851" transform="rotate(89.814 -16.902 -8.275)scale(1 -1)"/></g><g filter="url(#d)"><ellipse cx="5.508" cy="30.487" fill="#8900ff" rx="5.508" ry="30.487" transform="rotate(89.814 -19.197 -7.127)scale(1 -1)"/></g><g filter="url(#e)"><ellipse cx="5.508" cy="30.599" fill="#8900ff" rx="5.508" ry="30.599" transform="rotate(89.814 -25.928 4.177)scale(1 -1)"/></g><g filter="url(#f)"><ellipse cx="5.508" cy="30.599" fill="#8900ff" rx="5.508" ry="30.599" transform="rotate(89.814 -25.738 5.52)scale(1 -1)"/></g><g filter="url(#g)"><ellipse cx="14.072" cy="22.078" fill="#eee6ff" rx="14.072" ry="22.078" transform="rotate(93.35 31.245 55.578)scale(-1 1)"/></g><g filter="url(#h)"><ellipse cx="3.47" cy="21.501" fill="#8900ff" rx="3.47" ry="21.501" transform="rotate(89.009 35.419 55.202)scale(-1 1)"/></g><g filter="url(#i)"><ellipse cx="3.47" cy="21.501" fill="#8900ff" rx="3.47" ry="21.501" transform="rotate(89.009 35.419 55.202)scale(-1 1)"/></g><g filter="url(#j)"><ellipse cx="14.592" cy="9.743" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(39.51 14.592 9.743)"/></g><g filter="url(#k)"><ellipse cx="61.728" cy="-5.321" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 61.728 -5.32)"/></g><g filter="url(#l)"><ellipse cx="55.618" cy="7.104" fill="#00c2ff" rx="5.971" ry="9.665" transform="rotate(37.892 55.618 7.104)"/></g><g filter="url(#m)"><ellipse cx="12.326" cy="39.103" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 12.326 39.103)"/></g><g filter="url(#n)"><ellipse cx="12.326" cy="39.103" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 12.326 39.103)"/></g><g filter="url(#o)"><ellipse cx="49.857" cy="30.678" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 49.857 30.678)"/></g><g filter="url(#p)"><ellipse cx="52.623" cy="33.171" fill="#00c2ff" rx="5.971" ry="15.297" transform="rotate(37.892 52.623 33.17)"/></g></g><path d="M6.919 0c-9.198 13.166-9.252 33.575 0 46.789h6.215c-9.25-13.214-9.196-33.623 0-46.789zm62.424 0h-6.215c9.198 13.166 9.252 33.575 0 46.789h6.215c9.25-13.214 9.196-33.623 0-46.789" class="parenthesis"/><defs><filter id="b" width="60.045" height="41.654" x="-5.564" y="16.92" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="c" width="90.34" height="51.437" x="-40.407" y="-6.762" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="d" width="79.355" height="29.4" x="-35.435" y="2.801" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="e" width="79.579" height="29.4" x="-30.84" y="20.8" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="f" width="79.579" height="29.4" x="-29.307" y="21.949" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="g" width="74.749" height="58.852" x="29.961" y="-17.13" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="h" width="61.377" height="25.362" x="37.754" y="3.055" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="i" width="61.377" height="25.362" x="37.754" y="3.055" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="j" width="56.045" height="63.649" x="-13.43" y="-22.082" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="k" width="54.814" height="64.646" x="34.321" y="-37.644" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="l" width="33.541" height="35.313" x="38.847" y="-10.552" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="m" width="54.814" height="64.646" x="-15.081" y="6.78" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="n" width="54.814" height="64.646" x="-15.081" y="6.78" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="o" width="54.814" height="64.646" x="22.45" y="-1.645" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="p" width="39.409" height="43.623" x="32.919" y="11.36" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter></defs></svg>
+
+
+
+===== FILE: src\components\Contact.jsx =====
+
+import { useState } from "react";
+
+const EMAIL = "zohairalam03@gmail.com";
+
+export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${EMAIL}`;
+    }
+  };
+
+  return (
+    <section id="contact" className="mx-auto max-w-6xl px-5 py-20">
+      <h2 className="max-w-2xl text-4xl font-bold md:text-5xl">
+        I'm open to full-stack and AI engineering roles, and to freelance projects.
+      </h2>
+      <p className="mt-5 max-w-xl text-muted">
+        Send a short note about what you're building. I reply by email.
+      </p>
+
+      <div className="mt-8 flex flex-wrap gap-3">
+        <a href={`mailto:${EMAIL}`} className="btn btn-solid">Email {EMAIL}</a>
+        <button onClick={copy} className="btn btn-ghost" aria-live="polite">
+          {copied ? "Copied" : "Copy email"}
+        </button>
+      </div>
+
+      <p className="mt-6 flex gap-6">
+        <a className="font-semibold underline hover:text-teal" href="https://github.com/Crizax" target="_blank" rel="noreferrer">GitHub</a>
+        <a className="font-semibold underline hover:text-teal" href="https://linkedin.com/in/zohair-alam-0b6947279" target="_blank" rel="noreferrer">LinkedIn</a>
+      </p>
+    </section>
+  );
+}
+
+
+
+===== FILE: src\components\Footer.jsx =====
+
+export default function Footer() {
+  return (
+    <footer className="border-t border-line">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-5 py-6 text-sm text-muted">
+        <p>&copy; {new Date().getFullYear()} Zohair Alam</p>
+        <p>Built with React, Vite and Tailwind CSS.</p>
+      </div>
+    </footer>
+  );
+}
+
+
+
+===== FILE: src\components\Hero.jsx =====
+
+import { useState } from "react";
+
+// Keyword rules stand in for the NLP model so the idea can run in the browser.
+const RULES = [
+  [/careem|uber|indrive|petrol|fuel|pso|shell/i, "Transport"],
+  [/carrefour|imtiaz|naheed|grocery|foodpanda|kfc|restaurant|cafe|coffee/i, "Food and groceries"],
+  [/k-?electric|ssgc|ptcl|nayatel|utility|bill/i, "Bills and utilities"],
+  [/netflix|spotify|youtube|cinema|steam|amazonprime/i, "Entertainment"],
+  [/daraz|amazon|store|shop/i, "Shopping"],
+  [/salary|payroll|credited/i, "Income"],
+];
+
+const SAMPLE = `CARREFOUR KHI POS PURCHASE 4,820
+CAREEM RIDE 10 OCT 650
+K-ELECTRIC BILL PAYMENT 7,300
+NETFLIX.COM 1,500
+SALARY CREDITED 90,000`;
+
+const categorize = (line) => (RULES.find(([re]) => re.test(line)) || [null, "Uncategorized"])[1];
+const classify = (text) =>
+  text.split("\n").map((l) => l.trim()).filter(Boolean).slice(0, 6)
+    .map((line) => ({ line, cat: categorize(line) }));
+
+function StatementDemo() {
+  const [text, setText] = useState(SAMPLE);
+  const [results, setResults] = useState(() => classify(SAMPLE));
+  const [run, setRun] = useState(0);
+
+  const go = () => {
+    setResults(classify(text));
+    setRun((r) => r + 1); // new key replays the reveal
+  };
+
+  return (
+    <div className="rounded-2xl border-2 border-ink bg-paper p-5 shadow-[6px_6px_0_var(--marigold)] sm:p-6">
+      <p className="font-display text-xl font-bold">Statement categorizer</p>
+      <p className="mt-1 text-sm text-muted">
+        My finance tracker labels every bank-statement line. This version uses simple keyword
+        rules in your browser; the real one asks an NLP model through FastAPI.
+      </p>
+
+      <ul key={run} className="rules mt-4 border-y border-line" aria-live="polite">
+        {results.map((r, i) => (
+          <li key={i} className="flex items-center justify-between gap-3 py-2">
+            <span className="truncate font-mono text-[0.8rem]">{r.line}</span>
+            <span className="row-result shrink-0" style={{ animationDelay: `${0.5 + i * 0.45}s` }}>
+              <mark className="mark rounded px-2 py-0.5 text-sm font-semibold text-ink"
+                    style={{ animationDelay: `${0.7 + i * 0.45}s` }}>
+                {r.cat}
+              </mark>
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <label htmlFor="statement" className="mt-4 block text-sm font-semibold">
+        Edit the lines or paste your own (up to 6)
+      </label>
+      <textarea
+        id="statement"
+        rows={4}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        className="mt-1 w-full rounded-lg border border-line bg-mist p-2 font-mono text-[0.8rem]"
+      />
+      <button onClick={go} className="btn btn-solid mt-3 w-full sm:w-auto">Categorize</button>
+    </div>
+  );
+}
+
+export default function Hero() {
+  return (
+    <section id="top" className="mx-auto grid max-w-6xl gap-14 px-5 pb-20 pt-14 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:pt-24">
+      <div>
+        <h1 className="text-5xl font-extrabold sm:text-6xl">
+          I build full-stack apps, and the NLP services that make them smarter.
+        </h1>
+        <p className="mt-6 max-w-xl text-lg text-muted">
+          I'm Zohair, a software engineer in Karachi. I work with React, Tailwind and Spring Boot,
+          and add Python and FastAPI services when a product needs a model.
+        </p>
+
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href="#projects" className="btn btn-solid">See my projects</a>
+          <a href="/Zohair_Alam_Resume.pdf" className="btn btn-ghost" download>Download resume</a>
+        </div>
+
+        <dl className="mt-10 grid gap-5 text-[0.95rem] sm:grid-cols-2">
+          <div>
+            <dt className="text-muted">Education</dt>
+            <dd className="font-semibold">B.E. Software Engineering, Iqra University (2026)</dd>
+          </div>
+          <div>
+            <dt className="text-muted">Experience</dt>
+            <dd className="font-semibold">Front-End Engineer Intern, Sunshine Digital Solutions</dd>
+          </div>
+        </dl>
+      </div>
+
+      <StatementDemo />
+    </section>
+  );
+}
+
+
+
+===== FILE: src\components\Navbar.jsx =====
+
+import { useState } from "react";
+
+const links = [
+  ["Projects", "#projects"],
+  ["Skills", "#skills"],
+  ["Services", "#services"],
+  ["Process", "#process"],
+  ["Contact", "#contact"],
+];
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  return (
+    <header className="glass sticky top-0 z-50 border-b border-line">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3" aria-label="Main">
+        <a href="#top" className="font-display text-lg font-bold">Zohair Alam</a>
+
+        <ul className="hidden items-center gap-7 md:flex">
+          {links.map(([label, href]) => (
+            <li key={href}><a href={href} className="hover:text-teal">{label}</a></li>
+          ))}
+        </ul>
+
+        <a href="#contact" className="btn btn-solid hidden md:inline-flex">Hire me</a>
+
+        <button
+          className="btn btn-ghost md:hidden"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? "Close" : "Menu"}
+        </button>
+      </nav>
+
+      {open && (
+        <ul id="mobile-menu" className="rules border-t border-line px-5 pb-3 md:hidden">
+          {links.map(([label, href]) => (
+            <li key={href}>
+              <a href={href} className="block py-3" onClick={() => setOpen(false)}>{label}</a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </header>
+  );
+}
+
+
+
+===== FILE: src\components\Process.jsx =====
+
+const steps = [
+  ["Understand", "Clarify what the product must do and who uses it before choosing tools."],
+  ["Plan", "Sketch the data model and API endpoints so frontend and backend agree early."],
+  ["Build", "Develop the React interface and the Spring Boot or FastAPI services in small, working pieces."],
+  ["Test", "Check the app in the browser and on mobile. Compare models against a baseline with precision, recall and F1."],
+  ["Ship", "Containerize with Docker so it runs the same everywhere, then deploy."],
+];
+
+export default function Process() {
+  return (
+    <section id="process" className="bg-paper border-y border-line">
+      <div className="mx-auto max-w-6xl px-5 py-20">
+        <h2 className="text-4xl font-bold">How I work</h2>
+        <ol className="mt-10 grid gap-8 md:grid-cols-5 md:gap-6">
+          {steps.map(([title, text], i) => (
+            <li key={title} className="border-t-2 border-ink pt-4">
+              <span className="font-display text-3xl font-extrabold text-teal">{i + 1}</span>
+              <h3 className="mt-2 text-xl font-bold">{title}</h3>
+              <p className="text-muted mt-2 text-[0.95rem]">{text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+
+
+===== FILE: src\components\Projects.jsx =====
+
+import { projects, additional } from "../data/projects";
+
+function Links({ p, dark }) {
+  if (!p.github && !p.live) return null;
+  const cls = dark ? "btn btn-light" : "btn btn-ghost";
+  return (
+    <div className="mt-6 flex flex-wrap gap-3">
+      {p.live && <a className={cls} href={p.live} target="_blank" rel="noreferrer">Live preview</a>}
+      {p.github && <a className={cls} href={p.github} target="_blank" rel="noreferrer">View code</a>}
+    </div>
+  );
+}
+
+export default function Projects() {
+  const [main, ...rest] = projects;
+  return (
+    <section id="projects" className="mx-auto max-w-6xl px-5 py-20">
+      <h2 className="text-4xl font-bold">Projects</h2>
+      <p className="mt-3 max-w-xl text-muted">
+        My full-stack project first, then applied machine learning work from my degree.
+      </p>
+
+      <article className="bg-ink text-mist mt-10 rounded-2xl p-7 md:p-12">
+        <h3 className="max-w-2xl text-3xl font-bold md:text-4xl">{main.title}</h3>
+        <p className="text-dim mt-4 max-w-2xl">{main.summary}</p>
+
+        <ol className="mt-8 flex flex-wrap items-center gap-y-3" aria-label="How the parts connect">
+          {main.flow.map((step, i) => (
+            <li key={step} className="flex items-center">
+              {i > 0 && <span className="h-px w-6 bg-[#3a4a5a] sm:w-10" aria-hidden="true" />}
+              <span className="rounded-lg border border-[#3a4a5a] px-3 py-1.5 font-semibold">{step}</span>
+            </li>
+          ))}
+        </ol>
+        <p className="text-dim mt-3 text-sm">All services run together with Docker Compose.</p>
+
+        <ul className="text-dim mt-8 max-w-2xl list-disc space-y-2 pl-5">
+          {main.points.map((pt) => <li key={pt}>{pt}</li>)}
+        </ul>
+
+        <ul className="mt-8 flex flex-wrap gap-2">
+          {main.stack.map((s) => <li key={s} className="chip chip-dark">{s}</li>)}
+        </ul>
+        <Links p={main} dark />
+      </article>
+
+      <div className="mt-8 grid gap-6 md:grid-cols-3">
+        {rest.map((p) => (
+          <article key={p.id} className="bg-paper flex flex-col rounded-xl border border-line p-6">
+            <h3 className="text-xl font-bold">{p.title}</h3>
+            <p className="text-muted mt-3">{p.summary}</p>
+            <ul className="text-muted mt-4 list-disc space-y-2 pl-5 text-[0.95rem]">
+              {p.points.map((pt) => <li key={pt}>{pt}</li>)}
+            </ul>
+            <ul className="mt-auto flex flex-wrap gap-2 pt-5">
+              {p.stack.map((s) => <li key={s} className="chip">{s}</li>)}
+            </ul>
+            <Links p={p} />
+          </article>
+        ))}
+      </div>
+
+      <div className="rules mt-12 border-t border-line">
+        {additional.map((a) => (
+          <div key={a.title} className="grid gap-1 py-5 md:grid-cols-[16rem_1fr] md:gap-8">
+            <h3 className="text-lg font-bold">{a.title}</h3>
+            <p className="text-muted">{a.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+
+
+===== FILE: src\components\Services.jsx =====
+
+import { services } from "../data/services";
+
+export default function Services() {
+  return (
+    <section id="services" className="mx-auto max-w-6xl px-5 py-20">
+      <h2 className="text-4xl font-bold">What I can build</h2>
+      <p className="mt-3 max-w-xl text-muted">
+        For teams hiring and for freelance clients.
+      </p>
+      <div className="mt-10 grid gap-x-12 gap-y-10 md:grid-cols-2">
+        {services.map((s) => (
+          <div key={s.title} className="border-t-2 border-ink pt-4">
+            <h3 className="text-xl font-bold">{s.title}</h3>
+            <p className="text-muted mt-2 max-w-md">{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+
+
+===== FILE: src\components\Skills.jsx =====
+
+import { skills } from "../data/skills";
+
+export default function Skills() {
+  return (
+    <section id="skills" className="bg-paper border-y border-line">
+      <div className="mx-auto max-w-6xl px-5 py-20">
+        <h2 className="text-4xl font-bold">Skills</h2>
+        <div className="rules mt-10">
+          {skills.map((g) => (
+            <div key={g.group} className="grid gap-3 py-6 md:grid-cols-[14rem_1fr]">
+              <h3 className="text-xl font-bold">{g.group}</h3>
+              <ul className="flex flex-wrap gap-2">
+                {g.items.map((item) => <li key={item} className="chip">{item}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+===== FILE: src\data\projects.js =====
+
+// Add real links when you have them: set github / live to a URL string.
+export const projects = [
+  {
+    id: "finance-tracker",
+    title: "AI-Assisted Finance Tracking Platform",
+    summary:
+      "A finance tracker where a Spring Boot backend handles transactions, authentication and storage, and a FastAPI service reads bank-statement text and labels each transaction with an NLP classification model.",
+    points: [
+      "React frontend with a Spring Boot REST API, Spring Data JPA and MySQL for persistence.",
+      "Python and FastAPI microservice that auto-categorizes transactions and feeds the spending-insight dashboards.",
+      "Frontend, backend and database run together with Docker Compose.",
+    ],
+    stack: ["React.js", "Spring Boot", "FastAPI", "MySQL", "Docker", "REST APIs"],
+    flow: ["React", "Spring Boot", "FastAPI + NLP model", "MySQL"],
+    github: "https://github.com/Crizax/monetiq.git",
+    live: null,
+  },
+  {
+    id: "coreference",
+    title: "NLP Coreference Resolution on the Qalb Dataset",
+    summary:
+      "Fine-tuned a transformer language model to find and resolve ambiguous pronoun references in text, starting from Hugging Face base checkpoints.",
+    points: [
+      "Built tokenization and preprocessing pipelines that turn raw text into sequence-labeling tensors with attention masks.",
+      "Compared baseline and fine-tuned checkpoints using precision, recall and F1, then reviewed misclassified cases to find weak spots in long-distance references.",
+    ],
+    stack: ["Python", "PyTorch", "Hugging Face", "Scikit-learn"],
+    github: null,
+    live: null,
+  },
+  {
+    id: "classroom-detection",
+    title: "Real-Time Classroom Object Detection",
+    summary:
+      "A computer-vision pipeline that detects desks, chairs, whiteboards and devices in video and still images.",
+    points: [
+      "Labeled a custom training set and augmented it with rotation, brightness and noise to handle different lighting.",
+      "Ran a pre-trained YOLO backbone through OpenCV and measured results with mean Average Precision and frame rate.",
+    ],
+    stack: ["Python", "OpenCV", "YOLO", "PyTorch"],
+    github: null,
+    live: null,
+  },
+  {
+    id: "campus-dashboard",
+    title: "Campus Analytics and Operations Dashboard",
+    summary:
+      "An interactive dashboard that cleans and visualizes university operational and demographic data for reporting.",
+    points: [
+      "Time filtering, category grouping, heatmaps and time-series charts that surface trends.",
+    ],
+    stack: ["Python", "Streamlit", "Pandas", "Plotly"],
+    github: "https://github.com/Crizax/Campus-Complaint-Dashboard",
+    live: "https://campus-complaint-dashboard-cyhsupwekzwsruc52wyxz7.streamlit.app/#university-complaints-and-reports-analysis-dashboard",
+  },
+];
+
+export const additional = [
+  {
+    title: "XenonCreatives and VR startup websites",
+    text: "Marketing sites built and deployed with React.js, Tailwind CSS and Firebase.",
+  },
+  {
+    title: "Android apps",
+    text: "A pet-supplies store, a shoe store and a to-do list, built in Kotlin and Java with Firebase, SQLite and Room.",
+  },
+];
+
+
+
+===== FILE: src\data\services.js =====
+
+export const services = [
+  { title: "Full-stack web apps", text: "React front ends connected to Spring Boot or FastAPI backends, with authentication and a MySQL database." },
+  { title: "REST APIs and microservices", text: "Spring MVC and Spring Data JPA services with clear endpoints, plus Docker Compose setups to run them." },
+  { title: "Front ends from Figma", text: "Responsive React and Tailwind interfaces that match the design and load quickly." },
+  { title: "NLP and model fine-tuning", text: "Fine-tuning Hugging Face transformers, building tokenization pipelines, and comparing models with precision, recall and F1." },
+  { title: "FastAPI services for models", text: "Wrapping a trained model in a Python API so a web app can call it." },
+  { title: "Data dashboards", text: "Streamlit and Plotly dashboards that clean data and show trends with filters." },
+];
+
+
+
+===== FILE: src\data\skills.js =====
+
+export const skills = [
+  { group: "Frontend", items: ["React.js", "JavaScript (ES6+)", "Tailwind CSS", "Material UI", "Context API", "HTML5 and CSS3"] },
+  { group: "Backend", items: ["Java", "Spring Boot", "Spring MVC", "Spring Data JPA and Hibernate", "REST APIs", "Microservices", "Maven"] },
+  { group: "Databases", items: ["MySQL", "PostgreSQL", "MongoDB"] },
+  { group: "AI and NLP", items: ["Python", "PyTorch", "Hugging Face Transformers", "BERT and RoBERTa fine-tuning", "Precision, recall and F1", "OpenCV", "YOLO"] },
+  { group: "Tooling", items: ["Docker", "Git and GitHub", "Postman", "Figma to code"] },
+];
+
+
+
+===== FILE: src\index.css =====
+
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --mist: #eef2f4;
+  --paper: #ffffff;
+  --ink: #17222d;
+  --muted: #5b6b79;
+  --line: #d5dde3;
+  --teal: #0b6a69;
+  --teal-dark: #084b4a;
+  --marigold: #f4b942;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body {
+  margin: 0;
+  background: var(--mist);
+  color: var(--ink);
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+h1, h2, h3, .font-display {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+
+/* colour tokens (plain CSS so they work on Tailwind v3 and v4) */
+.bg-mist { background: var(--mist); }
+.bg-paper { background: var(--paper); }
+.bg-ink { background: var(--ink); }
+.glass { background: rgb(238 242 244 / 0.92); backdrop-filter: blur(8px); }
+.text-ink { color: var(--ink); }
+.text-mist { color: var(--mist); }
+.text-dim { color: #b9c5ce; }
+.text-muted { color: var(--muted); }
+.text-teal { color: var(--teal); }
+.border-line { border-color: var(--line); }
+.border-ink { border-color: var(--ink); }
+.rules > * + * { border-top: 1px solid var(--line); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.7rem 1.25rem; border-radius: 0.5rem; font-weight: 600;
+  border: 2px solid var(--ink); cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn-solid { background: var(--ink); color: var(--mist); }
+.btn-solid:hover { background: var(--teal); border-color: var(--teal); }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--mist); }
+.btn-light { background: var(--marigold); border-color: var(--marigold); color: var(--ink); }
+.btn-light:hover { background: var(--mist); border-color: var(--mist); }
+
+.chip {
+  display: inline-block; padding: 0.15rem 0.7rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--mist); font-size: 0.9rem;
+}
+.chip-dark { border-color: #3a4a5a; background: transparent; color: var(--mist); }
+
+/* hero demo: one orchestrated reveal, replays when the person runs it */
+@keyframes tag-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@keyframes sweep { from { background-size: 0% 100%; } to { background-size: 100% 100%; } }
+.row-result { opacity: 0; animation: tag-in 0.35s ease forwards; }
+.mark {
+  background-color: transparent;
+  background-image: linear-gradient(var(--marigold), var(--marigold));
+  background-repeat: no-repeat; background-size: 0% 100%;
+  animation: sweep 0.45s ease forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .row-result { animation: none; opacity: 1; }
+  .mark { animation: none; background-size: 100% 100%; }
+}
+
+
+
+===== FILE: src\main.jsx =====
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
